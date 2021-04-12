@@ -21,9 +21,7 @@ module.exports = {
 
       statusCount[status] += 1;
 
-      if (status === 'progress') {
-        jobTotalHours += Number(job['daily-hours']);
-      }
+      jobTotalHours = status === 'progress' ? jobTotalHours + Number(job['daily-hours']) : jobTotalHours;
 
       return {
         ...job,
