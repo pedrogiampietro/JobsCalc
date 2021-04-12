@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#41414C" />
-  <link rel="shortcut icon" href="images/favicon.png" type="image/png" />
+  <link rel="shortcut icon" href="/images/favicon.png" type="image/png" />
   <title>JobsCalc</title>
 
   <link rel="stylesheet" href="/styles/main.css" />
@@ -29,11 +29,10 @@
 
 <body id="page-job-edit">
 
-  <%- include('parts/page-header', {title: 'Editar Job'}) %>
-
+  <%- include("parts/page-header", { title: "Editar Job" })  %>
 
   <div class="container flex animate-up delay-2">
-    <form id="form-job" method="post" action="/job/<%= job.id %> ">
+    <form id="form-job" method="post" action="/job/<%= job.id %>">
       <fieldset>
         <legend>Dados do Job</legend>
         <div class="separator light"></div>
@@ -43,17 +42,17 @@
           <input type="text" id="name" name="name" value="<%= job.name %>" />
         </div>
 
-        <div class=" input-group">
+        <div class="input-group">
           <div class="input-wrapper">
             <label for="daily-hours">Quantas horas <br />
               por dia vai dedicar ao job?</label>
-            <input type="number" step="0.1" id="daily-hours" name="daily-hours" value="<%= job['daily-hours'] %> " />
+            <input type="number" step="0.1" id="daily-hours" name="daily-hours" value="<%= job["daily-hours"] %>" />
           </div>
 
           <div class="input-wrapper">
             <label for="total-hours">Estimativa de <br />
               horas para esse Job?</label>
-            <input type="number" id="total-hours" name="total-hours" value="<%= job['total-hours'] %> " />
+            <input type="number" id="total-hours" name="total-hours" value="<%= job["total-hours"] %>" />
           </div>
         </div>
       </fieldset>
@@ -63,7 +62,7 @@
     <aside class="card">
       <img src="/images/money-color.svg" alt="Imagem de Dinheiro">
       <p>
-        O valor do projeto ficou em <strong>R$ <%= job.budget.toFixed(2).replace('.', ',') %> </strong>
+        O valor do projeto ficou em <strong>R$ <%= job.budget.toFixed(2).replace(".",",") %> </strong>
       </p>
       <div class="button-group">
         <button class="button green" form="form-job" type="submit" title="Salvar Dados">Salvar</button>
@@ -83,7 +82,6 @@
       <p>Quer mesmo excluir esse job? <br />
         Ele será apagado para sempre.
       </p>
-
       <footer>
         <a class="button gray" href="#">Cancelar</a>
         <button class="button red" type="submit" form="delete-job">Excluir Job</button>
